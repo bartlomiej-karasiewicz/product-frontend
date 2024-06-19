@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Add Product</h2>
+<form [formGroup]="productForm">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="productName">
+            <mat-error *ngIf="productForm.get('productName')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Price" type="number" formControlName="productPrice">
+            <mat-error *ngIf="productForm.get('productPrice')?.hasError('required')">Price is required</mat-error>
+            <mat-error *ngIf="productForm.get('productPrice')?.hasError('min')">Price must be greater than 0</mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">Cancel</button>
+        <button mat-button color="primary" (click)="addProduct()" [disabled]="productForm.invalid">Add</button>
+    </div>
+</form>

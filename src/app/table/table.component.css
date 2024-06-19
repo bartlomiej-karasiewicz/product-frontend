@@ -1,0 +1,10 @@
+.button-container {
+  padding: 10px;
+}
+
+.table-container {
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
